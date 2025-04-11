@@ -49,5 +49,13 @@ class Program
         foreach (var line in lastLines)
             Console.WriteLine($"    {line}");
         Console.WriteLine($"\n[DEBUG] current directory: {Directory.GetCurrentDirectory()}");
+        File.WriteAllLines("Log_sum.txt", new[]
+            {
+            $"Errors: {errorCount}",
+                $"Information: {infoCount}",
+                $"Debugs: {debugCount}",
+                "",
+                "Loaded Scripts:"
+            }.Concat(scripts.Distinct()));
     }
 }
